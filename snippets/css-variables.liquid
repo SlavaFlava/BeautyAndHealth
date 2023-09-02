@@ -1,0 +1,20 @@
+<style>
+	{{ settings.font_heading | font_face }}
+	{{ settings.font_body | font_face }}
+
+	{%- assign font_body_bold = settings.font_body | font_modify: 'weight', 'bolder' -%}
+	{%- assign font_body_bold_italic = font_body_bold | font_modify: 'style', 'italic' -%}
+
+	{{ font_body_bold | font_face: font_display: 'swap' }}
+	{{ font_body_bold_italic | font_face: font_display: 'swap' }}
+
+    :root {
+        --color-background: {{ settings.color_background }};
+        --color-text: {{ settings.color_text }};
+        --color-heading: {{ settings.color_heading }};
+        --color-link: {{ settings.color_link }};
+
+        --font-heading: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
+        --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+    }
+</style>
