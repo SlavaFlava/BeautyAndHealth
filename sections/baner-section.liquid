@@ -1,0 +1,36 @@
+<div class="baner-section">
+  <h2 class="baner-section_title">test</h2>
+  <img
+    src=""
+    alt=""
+    class="baner-section_image">
+</div>
+
+{% schema %}
+  {
+    "name": "Baner",
+    "settings": [
+      {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+      {
+          "type": "richtext",
+          "id": "subtitle",
+          "label": "SubTitle"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Size Recommended 1920x850"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Baner"
+      }
+    ]
+  }
+{% endschema %}
