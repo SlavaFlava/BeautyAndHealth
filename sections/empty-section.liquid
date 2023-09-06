@@ -1,23 +1,9 @@
-{% if template == 'password' %}
-	{% form 'storefront_password' %}
-		{{ form.errors | default_errors }}
+{{ template }}
 
-		<div class="password">
-			<label for="password">Password</label>
-			<input type="password" name="password">
-		</div>
-
-		<div class="submit">
-			<input type="submit" value="Sign in">
-		</div>
-	{% endform %}
-{% else %}
-	{{ template }}
-{% endif %}
 
 {% schema %}
-{
-	"name": "Empty section",
-	"settings": []
-}
+  {
+    "name": "empty-section",
+    "settings": []
+  }
 {% endschema %}

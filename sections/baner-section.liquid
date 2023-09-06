@@ -1,9 +1,33 @@
+{{ 'baner-section.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }}{
+    margin-top: {{ section.settings.margin-top }} px;
+    margin-bottom: {{ section.settings.margin-bottom }} px;
+  }
+  #shopify-section-{{ section.id }}.baner-section {
+    min-height: {{ section.settings.min_height }}px;
+  }
+  #shopify-section-{{ section.id }}.baner-section__content {
+    color: {{ section.settings.content_color }};
+  }
+</style>
+
 <div class="baner-section">
-  <h2 class="baner-section_title">test</h2>
   <img
-    src=""
-    alt=""
-    class="baner-section_image">
+    src="{{ section.settings.image | img_url: 'master' }}"
+    alt={{ section.settings.title }}
+    class="baner-section__bg">
+
+  <div class="baner-section__content">
+    <h2 class="baner-section_title baner-section_title--uppercase">{{ section.settings.title }}</h2>
+    <div class="baner-section__subtitle">
+      {{ section.settings.subtitle }}
+    </div>
+  </div>
+
+
+
 </div>
 
 {% schema %}
@@ -11,21 +35,53 @@
     "name": "Baner",
     "settings": [
       {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
+        "type": "range",
+        "id": "min_height",
+        "min": 400,
+        "max": 800,
+        "step": 10,
+        "label": "Baner Height",
+        "default": 500
+      },
       {
-          "type": "richtext",
-          "id": "subtitle",
-          "label": "SubTitle"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image",
-          "info": "Size Recommended 1920x850"
-        }
+        "type": "range",
+        "id": "margin-top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Margin Top",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "margin-bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Margin Bottom",
+        "default": 20
+      },
+      {
+        "type": "color",
+        "id": "content_color",
+        "label": "Content Color",
+        "default": "#fff"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "subtitle",
+        "label": "SubTitle"
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Size Recommended 1920x850"
+      }
     ],
     "presets": [
       {

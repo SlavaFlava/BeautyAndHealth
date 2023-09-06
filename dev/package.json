@@ -8,7 +8,7 @@
     "dev": "gulp",
     "build": "gulp build --prod"
   },
-  "author": "Volodymyr Hlushko",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.21.4",

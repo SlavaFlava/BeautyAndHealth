@@ -1,0 +1,20 @@
+.baner-section {
+  position: relative;
+}
+.baner-section__title {
+  font-size: 20px;
+}
+.baner-section__title--uppercase {
+  text-transform: uppercase;
+}
+.baner-section__bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJhbmVyLXNlY3Rpb24uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFOztBQUdBO0VBQ0U7O0FBRUE7RUFDRTs7QUFNSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0EiLCJmaWxlIjoiYmFuZXItc2VjdGlvbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYmFuZXItc2VjdGlvbiB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcblxuXG4gICZfX3RpdGxlIHtcbiAgICBmb250LXNpemU6IDIwcHg7XG5cbiAgICAmLS11cHBlcmNhc2Uge1xuICAgICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgICB9XG4gIH1cblxuICAmX19zdWJ0aXRsZSB7fVxuXG4gICZfX2JnIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG9iamVjdC1maXQ6IGNvdmVyO1xuICAgIG9iamVjdC1wb3NpdGlvbjogY2VudGVyO1xuICAgIHRvcDogMDtcbiAgICBsZWZ0OiAwO1xuICAgIHotaW5kZXg6IC0xO1xuICB9XG59Il19 */
