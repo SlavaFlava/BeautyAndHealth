@@ -1,12 +1,15 @@
 .baner-section {
   position: relative;
 
-
+  &__content{
+    max-width: 1300px;
+    margin: auto;
+  }
+  
   &__title {
     font-size: 20px;
-
     &--uppercase {
-      text-transform: uppercase;
+      text-transform: uppercase; 
     }
   }
 
