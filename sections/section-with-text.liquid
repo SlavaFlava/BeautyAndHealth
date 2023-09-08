@@ -1,0 +1,48 @@
+{{ 'section-with-text.css' | asset_url | stylesheet_tag }}
+
+<section class="s-with-text">
+  <div class="s-with-text__content">
+<h1>{{ section.settings.title }}</h1>
+{{ section.settings.content }}
+<a href="{{ section.settings.btn_link }}">{{ section.settings.btn_name }}</a>
+  </div>
+</section> 
+
+
+{% schema %}
+  {
+    "name": "Section With Text",
+
+    "settings": [
+      {
+  "type": "text",
+  "id": "title",
+  "label": "Title",
+  "default": "Title section"
+},
+{
+  "type": "richtext",
+  "id": "content",
+  "label": "Content",
+  "default": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium.<p/>"
+},
+{
+  "type": "text",
+  "id": "btn_name",
+  "label": "Button name",
+  "default": "Learn more"
+},
+{
+  "type": "url",
+  "id": "btn_link",
+  "label": "Button link"
+}
+
+    ],
+    "presets": [
+      {
+        "name": "Section With Text"
+      }
+    ]
+  }
+{% endschema %}

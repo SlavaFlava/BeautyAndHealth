@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "baner-section",
+      "type": "section-with-text",
       "settings": {}
     }
   },
