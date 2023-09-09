@@ -1,10 +1,62 @@
-<header>
-  <h1>HEADER</h1>
-</header>
+{{ 'header.css.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'header.js' | asset_url }}" defer></script>
+
+<s-header class="s-header">
+  <header>
+    {% if section.settings.logo %}
+     <div class="s-header__logo">
+      <a href="/">
+      {% render 'image', image: section.settings.logo %}
+      </a>
+     </div>
+  {% endif %}
+  </header>
+</s-header>
+
+
 
 {% schema %}
   {
     "name": "Header",
-    "settings": []
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sticky_header",
+        "label": "Sticky Header",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "max_width",
+        "min": 1200,
+        "max": 1600,
+        "step": 5,
+        "label": "Header Max Width",
+        "default": 1300
+      },
+      {
+        "type": "range",
+        "id": "height",
+        "min": 60,
+        "max": 160,
+        "step": 1,
+        "label": "Header Height",
+        "default": 80
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color",
+        "default": "#FFFFFF"
+      }, {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      }, {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu"
+      }
+    ]
   }
-{% endschema %} 
+{% endschema %}
