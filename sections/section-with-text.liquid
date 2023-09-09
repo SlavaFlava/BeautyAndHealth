@@ -12,8 +12,8 @@
   }
   @media  screen  (max-width: 600px) {
     #shopify-section-{{ section.id }} {
-    margin-top: {{ section.settings.margin_top }}px;
-    margin-bottom: {{ section.settings.margin_bottom }}px;
+    margin-top: {{ section.settings.margin_top_mobile }}px;
+    margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
   }
 }
 </style>
@@ -59,7 +59,7 @@
   "max": 100,
   "step": 1,
   "unit": "px",
-  "label": "Padding Top",
+  "label": "Padding Top Mobile",
   "default": 35
 },
       {
