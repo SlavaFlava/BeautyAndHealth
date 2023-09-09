@@ -1,5 +1,23 @@
 {{ 'section-with-text.css' | asset_url | stylesheet_tag }}
 
+<style>
+  #shopify-section-{{ section.id }}{
+    background: {{ section.settings.background }};
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .s-with-text__content{
+    max-width: {{ section.settings.content_width }}px;
+    color: {{ section.settings.text_color }}
+  }
+  @media  screen  (max-width: 600px) {
+    #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+}
+</style>
+
 <section class="s-with-text">
   <div class="s-with-text__content">
 <h1>{{ section.settings.title }}</h1>
@@ -14,6 +32,68 @@
     "name": "Section With Text",
 
     "settings": [
+      {
+  "type": "range",
+  "id": "padding_top",
+  "min": 20,
+  "max": 120,
+  "step": 1,
+  "unit": "px",
+  "label": "Padding Top",
+  "default": 35
+},
+      {
+  "type": "range",
+  "id": "padding_bottom",
+  "min": 20,
+  "max": 120,
+  "step": 1,
+  "unit": "px",
+  "label": "Padding Bottom",
+  "default": 35
+},
+      {
+  "type": "range",
+  "id": "padding_top_mobile",
+  "min": 10,
+  "max": 100,
+  "step": 1,
+  "unit": "px",
+  "label": "Padding Top",
+  "default": 35
+},
+      {
+  "type": "range",
+  "id": "padding_bottom_mobile",
+  "min": 10,
+  "max": 100,
+  "step": 1,
+  "unit": "px",
+  "label": "Padding Bottom Mobile",
+  "default": 35
+},
+      {
+  "type": "range",
+  "id": "content_width",
+  "min": 400,
+  "max": 1300,
+  "step": 10,
+  "unit": "px",
+  "label": "Content Width",
+  "default": 600
+},
+{
+  "type": "color",
+  "id": "background",
+  "label": "Background",
+  "default": "#FFF"
+},
+{
+  "type": "color",
+  "id": "text_color",
+  "label": "Content Color",
+  "default": "#000000"
+},
       {
   "type": "text",
   "id": "title",
