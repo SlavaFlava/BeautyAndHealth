@@ -1,6 +1,7 @@
 @import "../node_modules/normalize.css/normalize";
 @import '../node_modules/flickity/css/flickity';
 
+
 .visually-hidden {
 	position: absolute !important;
 	overflow: hidden;
@@ -60,4 +61,7 @@
 
 img {
 	max-width: 100%;
+}
+.hidden{
+	overflow: hidden;
 }
