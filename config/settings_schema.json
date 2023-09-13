@@ -14,7 +14,7 @@
         "type": "image_picker",
         "id": "favicon",
         "label": "Favicon image",
-        "info": "Will be scaled down to 32 x 32px"
+        "info": "Will be scaled down to 32 x 32px" 
       }
     ]
   },
@@ -52,15 +52,214 @@
     "settings": [
       {
         "type": "range",
-        "id": "body_font_size",
+        "id": "font_size_body",
         "min": 12,
         "max": 24,
         "step": 1,
         "unit": "px",
-        "label": "Body Font size",
+        "label": "Font size body",
         "default": 16
-      },
-      
+      },   
+      {
+        "type": "range",
+        "id": "font_size_body_tablet",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size body tablet",
+        "default": 14
+      },   
+      {
+        "type": "range",
+        "id": "font_size_body_mobile",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size body mobile",
+        "default": 14
+      },   
+      {
+        "type": "range",
+        "id": "font_size_h1",
+        "min": 20,
+        "max": 120,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H1",
+        "default": 52
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h1_tablet",
+        "min": 20,
+        "max": 120,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H1 tablet",
+        "default": 46
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h1_mobile",
+        "min": 20,
+        "max": 120,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H1 mobile",
+        "default": 36
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h2",
+        "min": 20,
+        "max": 120,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H2",
+        "default": 42
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h2_tablet",
+        "min": 20,
+        "max": 120,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H2 tablet",
+        "default": 38
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h2_mobile",
+        "min": 20,
+        "max": 120,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H2 mobile",
+        "default": 30
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h3",
+        "min": 20,
+        "max": 120,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H3",
+        "default": 34
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h3_tablet",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H3 tablet",
+        "default": 30
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h3_mobile",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H3 mobile",
+        "default": 28
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h4",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H4",
+        "default": 30
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h4_tablet",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H4 tablet",
+        "default": 26
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h4_mobile",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H4 mobile",
+        "default": 22
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h5",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H5",
+        "default": 24
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h5_tablet",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H5 tablet",
+        "default": 20
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h5_mobile",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H5 mobile",
+        "default": 18
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h6",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H6",
+        "default": 18
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h6_tablet",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H6 tablet",
+        "default": 18
+      },     
+      {
+        "type": "range",
+        "id": "font_size_h6_mobile",
+        "min": 10,
+        "max": 110,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size H6 mobile",
+        "default": 16
+      },     
       {
         "type": "font_picker",
         "id": "font_body",
@@ -70,9 +269,9 @@
       },
       {
         "type": "font_picker",
-        "id": "font_heading", 
+        "id": "font_heading",
         "default": "assistant_n4",
-        "label": "Heading font",
+        "label": "Heading Font",
         "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https:\/\/help.shopify.com\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
       }
     ]
@@ -113,12 +312,6 @@
         "id": "social_twitter_link",
         "label": "Twitter",
         "info": "https:\/\/twitter.com\/shopify"
-      },
-      {
-        "type": "text",
-        "id": "social_snapchat_link",
-        "label": "Snapchat",
-        "info": "https:\/\/www.snapchat.com\/add\/shopify"
       },
       {
         "type": "text",

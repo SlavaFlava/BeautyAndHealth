@@ -1,3 +1,19 @@
+#shopify-section-header{
+  position:sticky;
+  top: -100px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  z-index: 999;
+  @media screen and (max-width: 600px){
+   position: relative;
+   top: 0;
+  }
+  &.sticky{
+    transition: all 0.3s ease-in-out;
+    top: 0;
+  }
+  
+}
 .s-header {
   box-shadow: 1px -10px 20px 0px grey;
   display: block;

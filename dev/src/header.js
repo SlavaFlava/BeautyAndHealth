@@ -22,13 +22,15 @@ if(!customElements.get('s-header')){
 
   stickyHeader() {
      console.log(this.getAttribute('data-sticky'));
+     const _this = this
    function addSticky(){
-    console.log(document.documentElement.scrollTop);
     if(document.documentElement.scrollTop > 200){
-      this.classList.add('sticky')
+      document.querySelector('#shopify-section-header').classList.add('sticky')
+    }
+    else if(ocument.documentElement.scrollTop == 0 ){
+      document.querySelector('#shopify-section-header').classList.remove('sticky')
     }
    }
-
      window.addEventListener('scroll', () =>addSticky())
   }
   
