@@ -27,7 +27,7 @@ if(!customElements.get('s-header')){
     if(document.documentElement.scrollTop > 200){
       document.querySelector('#shopify-section-header').classList.add('sticky')
     }
-    else if(ocument.documentElement.scrollTop == 0 ){
+    else if(document.documentElement.scrollTop == 0 ){
       document.querySelector('#shopify-section-header').classList.remove('sticky')
     }
    }
