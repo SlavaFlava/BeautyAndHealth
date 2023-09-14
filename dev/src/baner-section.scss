@@ -1,5 +1,6 @@
 .baner-section {
   position: relative;
+  
 
   &__content{
     max-width: 1300px;
@@ -13,7 +14,7 @@
     }
   }
 
-  &__subtitle {}
+  // &__subtitle {}
 
   &__bg {
     position: absolute;
