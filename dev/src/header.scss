@@ -45,7 +45,7 @@
     transition: transform .15s ease,opacity .15s ease;
     &:first-child {
      transform: scale(1.07);
-      opacity: 1;
+      opacity: 1.1;
     }
   }
   @media screen and (max-width: 990px) {
