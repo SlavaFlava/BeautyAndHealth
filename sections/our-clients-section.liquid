@@ -1,0 +1,167 @@
+{{ 'our-clients-section.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'our-clients-section.js' | asset_url }}" defer></script>
+
+<style>
+  #shopify-section-{{ section.id }} .s-our-clients__header{
+    color: {{ section.settings.content_color }};
+  }
+  #shopify-section-{{ section.id }} .s-our-clients__bg{
+    filter: brightness(0.{{ section.settings.bg_brightness | minus: 9 | abs }});
+  }
+  #shopify-section-{{ section.id }} .s-our-clients__review__foto{
+    height: {{ section.settings.foto_size }}px;
+    width: {{ section.settings.foto_size }}px;
+    margin-top: -{{ section.settings.foto_size | divided_by: 2 | plus: 20 }}px;
+  }
+  #shopify-section-{{ section.id }} .s-our-clients__review{
+    background-color: {{ section.settings.review_bg_color }};
+    color: {{ section.settings.review_text_color }};
+  }
+  #shopify-section-{{ section.id }} .s-our-clients__review h5{
+    color: {{ section.settings.client_name_color }};
+  }
+</style>
+
+<s-our-clients data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.speed }}">
+  <section class="s-our-clients">
+    <img
+      src="{{ section.settings.bg-image | img_url: 'master' }}"
+      alt="{{ section.settings.bg-image.alt }}"
+      class="s-our-clients__bg"
+    >
+
+    <div class="s-our-clients__header">
+      <span class="s-our-clients__header__subtitle">{{ section.settings.subtitle }}</span>
+      {{ section.settings.title }}
+    </div>
+    <div class="s-our-clients__slider">
+      {% for block in section.blocks %}
+        {% assign client = block.settings %}
+        <div class="s-our-clients__review">
+          <div class="s-our-clients__review__foto">
+            <img src="{{ client.client_foto | img_url: 'master' }}" alt="{{ client.client_name }}">
+          </div>
+          <h5>{{ client['client_name'] }}</h5>
+          <p>{{ client.review }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</s-our-clients>
+
+{% schema %}
+{
+  "name": "Our clients",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Slider autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 1000,
+      "max": 9000,
+      "step": 100,
+      "unit": "ms",
+      "label": "Autoplay speed",
+      "default": 3000
+    },
+    {
+      "type": "image_picker",
+      "id": "bg-image",
+      "label": "Background image",
+      "info": "Size Recomended 1920x850"
+    },
+    {
+      "type": "range",
+      "id": "bg_brightness",
+      "min": 0,
+      "max": 9,
+      "step": 1,
+      "label": "Background fogging",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content Color",
+      "default": "#FFF"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "What people say"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<h2>Words Of Our Clients</h2>"
+    },
+    {
+      "type": "range",
+      "id": "foto_size",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Foto size",
+      "default": 200
+    },
+    {
+      "type": "color",
+      "id": "review_bg_color",
+      "label": "Review background color",
+      "default": "#FFF"
+    },
+    {
+      "type": "color",
+      "id": "client_name_color",
+      "label": "Client name color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "review_text_color",
+      "label": "Review text color",
+      "default": "#9e9e9e"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "client",
+      "name": "Client",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "client_foto",
+          "label": "Client foto",
+          "info": "Size Recomended 1920x850"
+        },
+        {
+          "type": "text",
+          "id": "client_name",
+          "label": "Client name",
+          "default": "John Doe"
+        },
+
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Review",
+          "default": "I recently tried handmade soap, and it was a delightful experience. The soap's natural fragrance and gentle, chemical-free formula left my skin feeling refreshed and pampered."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our clients"
+    }
+  ]
+}
+{% endschema %}
