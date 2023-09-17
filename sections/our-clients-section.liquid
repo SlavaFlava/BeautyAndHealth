@@ -1,12 +1,28 @@
 {{ 'our-clients-section.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'our-clients-section.js' | asset_url }}" defer></script>
 
+{% assign slides_count = section.settings.number_of_slides | abs %}
+{% assign slides_count_tablet = section.settings.number_of_slides_tablet | abs %}
+{% assign slides_count_mobile = section.settings.number_of_slides_mobile | abs %}
+
 <style>
   #shopify-section-{{ section.id }} .s-our-clients__header{
     color: {{ section.settings.content_color }};
   }
+  #shopify-section-{{ section.id }} .s-our-clients__header{
+    color: {{ section.settings.content_color }};
+  }
+  #shopify-section-{{ section.id }} .s-our-clients__slider{
+    max-width: {{ section.settings.content_width }}px;
+    {% if section.settings.apply_slider == false %}
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+    {% endif %}
+  }
   #shopify-section-{{ section.id }} .s-our-clients__bg{
-    filter: brightness(0.{{ section.settings.bg_brightness | minus: 9 | abs }});
+  filter: brightness({% if section.settings.bg_brightness  == 0 %}1{% else %} 0.{{section.settings.bg_brightness | minus: 9 | abs}} {% endif %});
+    
   }
   #shopify-section-{{ section.id }} .s-our-clients__review__foto{
     height: {{ section.settings.foto_size }}px;
@@ -16,13 +32,53 @@
   #shopify-section-{{ section.id }} .s-our-clients__review{
     background-color: {{ section.settings.review_bg_color }};
     color: {{ section.settings.review_text_color }};
+    width: calc(100% / {{ section.settings.number_of_slides }} - {{ section.settings.spacing }}px);
+    margin:{{ section.settings.spacing | divided_by: 2  }}px;
   }
   #shopify-section-{{ section.id }} .s-our-clients__review h5{
     color: {{ section.settings.client_name_color }};
   }
+  #shopify-section-{{ section.id }} .flickity-button{
+    {% if section.blocks.size <= slides_count %}
+      display: none;
+    {% endif %}
+  }
+
+  @media screen and (max-width: 990px){
+    #shopify-section-{{ section.id }} .s-our-clients__review{ 
+    width: calc(100% /{{ section.settings.number_of_slides_tablet }});
+  }
+  }
+  #shopify-section-{{ section.id }} .flickity-button{
+    {% if section.blocks.size <= slides_count_tablet %}
+      display: none;
+      {% else %}
+      display: block;
+    {% endif %}
+  }
+  @media screen and (max-width: 600px) {
+    #shopify-section-{{ section.id }} .s-our-clients__review{  
+    width: calc(100% / {{ section.settings.number_of_slides_mobile }});
+  }
+  }
+  #shopify-section-{{ section.id }} .flickity-button{
+    {% if section.blocks.size <= slides_count_mobile %}
+      display: none;
+      {% else %}
+      display: block;
+    {% endif %}
+  }
+  
 </style>
 
-<s-our-clients data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.speed }}">
+{% if section.settings.autoplay %}
+{% assign speedSlider = section.settings.speed %}
+{% else %}
+{% assign speedSlider = false %}
+{% endif %}
+
+
+<s-our-clients data-speed={{ speedSlider }} data-apply_slider={{ section.settings.apply_slider }}>
   <section class="s-our-clients">
     <img
       src="{{ section.settings.bg-image | img_url: 'master' }}"
@@ -34,14 +90,18 @@
       <span class="s-our-clients__header__subtitle">{{ section.settings.subtitle }}</span>
       {{ section.settings.title }}
     </div>
+
+    {% comment %} <h1> {{ section.blocks.size }} </h1> {% endcomment %}
     <div class="s-our-clients__slider">
-      {% for block in section.blocks %}
+       {% for block in section.blocks %}
         {% assign client = block.settings %}
         <div class="s-our-clients__review">
+          {% if client.client_foto %}
           <div class="s-our-clients__review__foto">
             <img src="{{ client.client_foto | img_url: 'master' }}" alt="{{ client.client_name }}">
           </div>
-          <h5>{{ client['client_name'] }}</h5>
+          {% endif %}
+          <h5>{{ client.client_name }}</h5>
           <p>{{ client.review }}</p>
         </div>
       {% endfor %}
@@ -53,6 +113,32 @@
 {
   "name": "Our clients",
   "settings": [
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 600,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Content width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Spacing between columns",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "apply_slider",
+      "label": "Slider apply",
+      "default": true
+    },
     {
       "type": "checkbox",
       "id": "autoplay",
@@ -69,6 +155,72 @@
       "label": "Autoplay speed",
       "default": 3000
     },
+    {
+      "type": "select",
+      "id": "number_of_slides",
+      "label": "Number of slides desktop",
+      "options": [
+        {
+          "value": "1",
+          "label": "One"
+        },
+        {
+          "value": "2",
+          "label": "Two"
+        },
+        {
+          "value": "3",
+          "label": "Three"
+        },
+        {
+          "value": "4",
+          "label": "Four"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "number_of_slides_tablet",
+      "label": "Number of slides tablet",
+      "options": [
+        {
+          "value": "1",
+          "label": "One"
+        },
+        {
+          "value": "2",
+          "label": "Two"
+        },
+        {
+          "value": "3",
+          "label": "Three"
+        },
+        {
+          "value": "4",
+          "label": "Four"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "number_of_slides_mobile",
+      "label": "Number of slides mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "One"
+        },
+        {
+          "value": "2",
+          "label": "Two"
+        }
+
+      ],
+      "default": "1"
+    },
+
     {
       "type": "image_picker",
       "id": "bg-image",
@@ -105,12 +257,12 @@
     {
       "type": "range",
       "id": "foto_size",
-      "min": 80,
+      "min": 60,
       "max": 300,
-      "step": 10,
+      "step": 5,
       "unit": "px",
       "label": "Foto size",
-      "default": 200
+      "default": 120
     },
     {
       "type": "color",
