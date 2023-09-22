@@ -1,0 +1,183 @@
+{{ 'steps-scroll-section.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'steps-scroll-section.js' | asset_url }}" defer></script>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+}
+
+@media (max-width: 600px) {
+    #shopify-section-{{ section.id }} {
+        margin-top: {{ section.settings.margin_top_mobile }}px;
+        margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+}
+</style>
+
+<s-steps-scroll>
+  <div class="s-steps-scroll">
+    <div class="s-steps-scroll__row">
+      <div class="s-steps-scroll__content">
+        <div class="s-steps-scroll__content__title">
+          <h3>{{ section.settings.section_title }}</h3>
+       </div>
+       <div class="s-steps-scroll__content__steps">
+          {% for block in section.blocks %}
+            {%- assign step_content = block.settings -%}
+              <div data-content-index={{ forloop.index }} class="s-steps-scroll__content__step {%  if forloop.first %} s-steps-scroll__content__step--active {% else %} s-steps-scroll__content__step--bottom {% endif %}">
+              {% if section.settings.show_step %}
+                <h6>Step {{ forloop.index }}</h6>    
+              {% endif %} 
+              <p>{{ step_content.content }}</p>
+              </div>
+          {% endfor %} 
+       </div>
+      </div>
+
+      <div class="s-steps-scroll__images">
+        {% for block in section.blocks %}
+          {%- assign step_image = block.settings -%}
+          <div class="s-steps-scroll__images__image" data-image-index="{{ forloop.index }}">
+            <img src="{{ step_image.image | img_url: 'master' }}">
+          </div>
+       {% endfor %} 
+      </div>
+    </div>
+  </div>
+
+</s-steps-scroll> 
+
+{% schema %}
+  {
+    "name": "Steps scroll",
+    "settings": [
+      {
+  "type": "color",
+  "id": "bg_color",
+  "label": "Background color",
+  "default": "#FFFFFF"
+},
+
+      {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "label": "Margin Top Desktop",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "label": "Margin Top Mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "label": "Margin Bottom Desktop",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "label": "Margin Bottom Mobile",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "label": "Padding Top Desktop",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "label": "Padding Top Mobile",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "label": "Padding Bottom Desktop ",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "label": "Padding Bottom Mobile",
+      "default": 50
+    },
+    {
+      "type": "textarea",
+      "id": "section_title",
+      "label": "Section title",
+      "default": "Welcome to my shop!"
+     },
+     {
+      "type": "checkbox",
+      "id": "show_step",
+      "label": "Show steps",
+      "default": true
+        }
+
+    ],
+    "blocks": [
+    {
+      "type": "Step",
+      "name": "Step",
+      "settings": [
+
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Size Recommended 600x700"
+        },
+        {
+  "type": "textarea",
+  "id": "content",
+  "label": "Content",
+  "default": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam aspernatur facilis similique voluptate nihil provident?"
+}
+
+
+      ]
+    }
+  ],
+  
+  "presets": [
+      {
+        "name": "Steps scroll"
+      }
+    ]
+   } 
+{% endschema %}

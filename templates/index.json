@@ -1,11 +1,64 @@
 {
   "sections": {
-    "main": {
+    "a886b400-eebb-47d4-ba1c-274b6ca71a4d": {
       "type": "baner-section",
-      "settings": {}
+      "settings": {
+        "min_height": 500,
+        "margin_top": 20,
+        "margin_bottom": 20,
+        "content_color": "#ffffff",
+        "title": "",
+        "subtitle": "",
+        "image": "shopify:\/\/shop_images\/Soap-Image3.png"
+      }
+    },
+    "4c20fbf3-f3c2-4b64-a196-2e5b44422665": {
+      "type": "steps-scroll-section",
+      "blocks": {
+        "e5f09cd0-c609-41f5-8065-ed86495528db": {
+          "type": "Step",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/woman-in-park-afternoon.jpeg",
+            "content": "<p>  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam aspernatur facilis similique voluptate nihil provident?<\/p>"
+          }
+        },
+        "d565b78a-511c-402f-841d-7fc3ad72948d": {
+          "type": "Step",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/model-laughs-barefoot.jpg",
+            "content": "<p>  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam aspernatur facilis similique voluptate nihil provident?<\/p>"
+          }
+        },
+        "ece1b9ce-304e-4f8c-acde-d7d31e0991ab": {
+          "type": "Step",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fashion-model-in-fur.jpg",
+            "content": "<p>  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam aspernatur facilis similique voluptate nihil provident?<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "e5f09cd0-c609-41f5-8065-ed86495528db",
+        "d565b78a-511c-402f-841d-7fc3ad72948d",
+        "ece1b9ce-304e-4f8c-acde-d7d31e0991ab"
+      ],
+      "settings": {
+        "bg_color": "#f3f2ec",
+        "margin_top_desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_desktop": 50,
+        "margin_bottom_mobile": 50,
+        "padding_top_desktop": 50,
+        "padding_top_mobile": 50,
+        "padding_bottom_desktop": 50,
+        "padding_bottom_mobile": 50,
+        "section_title": "Description: Refresh and cool your skin with our Minty Fresh Cooling Soap. Infused with invigorating mint",
+        "show_step": true
+      }
     }
   },
   "order": [
-    "main"
+    "a886b400-eebb-47d4-ba1c-274b6ca71a4d",
+    "4c20fbf3-f3c2-4b64-a196-2e5b44422665"
   ]
 }

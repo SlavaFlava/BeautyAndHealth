@@ -1,0 +1,65 @@
+.s-steps-scroll {
+  max-width: 1200px;
+  margin: auto;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  &__content {
+    flex-basis: 40%;
+    position: relative;
+    padding-bottom: 35px;
+
+    &__title {
+      position: sticky;
+      top: 100px;
+    }
+
+    &__steps {
+      position: sticky;
+      top: 450px;
+      margin-top: 140px;
+      padding-bottom: 190px;
+    }
+
+    &__step {
+      position: absolute;
+      top: 0;
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+
+      &--top {
+        transform: translateY(-40%);
+      }
+
+      &--bottom {
+        transform: translateY(-140%);
+      }
+
+      &--active {
+
+        transform: translateY(50%); 
+        opacity: 1;  
+      }
+    }
+  }
+
+  &__images {
+    flex-basis: 50%;
+
+    &__image {
+      height: 600px;
+      margin-bottom: 50px;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}
