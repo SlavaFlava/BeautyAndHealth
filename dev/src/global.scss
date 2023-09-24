@@ -91,7 +91,7 @@ body, p{font-size:var(--font-size-body);}
   h6, .h6{font-size: var(--font-size-h6);}
 
   @media screen and (max-width: 990px) {
-  body, p{font-size:var(--font-size-body-tablet);}
+  body{font-size:var(--font-size-body-tablet);}
   h1, .h1 {font-size: var(--font-size-h1-tablet);}
   h2, .h2 {font-size: var(--font-size-h2-tablet);}
   h3, .h3{font-size: var(--font-size-h3-tablet);}
@@ -101,7 +101,7 @@ body, p{font-size:var(--font-size-body);}
 }
 
  @media screen and (max-width: 600px) {
-  body, p{font-size:var(--font-size-body-mobile);}
+  body{font-size:var(--font-size-body-mobile);}
   h1, .h1 {font-size: var(--font-size-h1-mobile);}
   h2, .h2 {font-size: var(--font-size-h2-mobile);}
   h3, .h3{font-size: var(--font-size-h3-mobile);}
