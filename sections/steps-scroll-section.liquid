@@ -16,7 +16,7 @@
         margin-top: {{ section.settings.margin_top_mobile }}px;
         margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
         padding-top: {{ section.settings.padding_top_mobile }}px;
-        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px; 
     }
 }
 </style>
@@ -31,10 +31,10 @@
        <div class="s-steps-scroll__content__steps">
           {% for block in section.blocks %}
             {%- assign step_content = block.settings -%}
-              <div data-content-index={{ forloop.index }} class="s-steps-scroll__content__step {%  if forloop.first %} s-steps-scroll__content__step--active {% else %} s-steps-scroll__content__step--bottom {% endif %}">
-              {% if section.settings.show_step %}
-                <h6>Step {{ forloop.index }}</h6>    
-              {% endif %} 
+              <div data-content-index={{ forloop.index }} class="s-steps-scroll__content__step {% if forloop.first %} s-steps-scroll__content__step--active {% else %} s-steps-scroll__content__step--bottom {% endif %}">
+              {% if section.settings.show_step %} 
+              <h6>Step {{ forloop.index }}</h6> 
+              {% endif %}
               <p>{{ step_content.content }}</p>
               </div>
           {% endfor %} 
@@ -43,9 +43,9 @@
 
       <div class="s-steps-scroll__wrapper-images">
         <div class="s-steps-scroll__images">
-                  {% for block in section.blocks %}
+          {% for block in section.blocks %}
           {%- assign step_image = block.settings -%}
-          <div class="s-steps-scroll__images__image" data-image-index="{{ forloop.index }}">
+          <div data-image-index={{ forloop.index }} class="s-steps-scroll__images__image" >
             <img src="{{ step_image.image | img_url: 'master' }}">
           </div>
        {% endfor %} 
@@ -54,7 +54,7 @@
     </div>
   </div>
 
-</s-steps-scroll> 
+</s-steps-scroll>
 
 {% schema %}
   {

@@ -8,78 +8,68 @@
     max-width: 1200px;
     &--active{
       position: fixed;
-      width: 100%;
       top: 100px;
+      width: 100%;
+      transform: translateY(0px);
     }
   }
 
 
   &__content {
     flex-basis: 50%;
-    position: sticky;
-    padding-bottom: 35px;
-    height: 500px;
-    padding-right: 140px;
-    top: 100px;
-    display: flex; 
-    justify-content: space-between;
+    padding-right: 100px;
+    display: flex;
+    justify-content: space-around;
     flex-direction: column;
 
     &__title {
-       z-index: 9;
-       max-width: 450px;
+      z-index: 9;
+      max-width: 450px;
     }
 
     &__steps {
-      position: relative;
-      height: 200px;
-      max-width: 360px;
-      font-size: 20px;
+     position: relative;
+     height: 200px;
+     max-width: 360px;
+     font-size: 20px;
     }
 
     &__step {
       position: absolute;
       top: 0;
-      transition: all 0.3s ease-out;
+      transition: all 0.3s ease-in-out;
       opacity: 0;
       h6{
         text-transform: uppercase;
         margin-bottom: 20px;
       }
-
-      &--top {
-        transform: translateY(-40%);
-      }
-
-      &--bottom {
-        transform: translateY(-140%);
-      }
-
-      &--active {
-
-        transform: translateY(50%); 
-        opacity: 1;  
-      }
+     &--top{
+      transform: translateY(-40%);
+     }
+     &--bottom{
+      transform: translateY(140%);  
+     }
+     &--active{
+      transform: translateY(50%);
+      opacity: 1;
+     }
     }
   }
   &__wrapper-images{
     overflow: hidden;
     flex-basis: 50%;
   }
-
   &__images {
-  transform: translateY(0px);
-  transition: all 0.9s ease-out;  
-
+    transform: translateY(0px);
+    transition: all 0.9s ease-out;
     &__image {
       height: 600px;
       margin-bottom: 100px;
       position: relative;
       overflow: hidden;
-
       & img {
         width: 100%;
-        height: 130%;
+        height: calc(100% + 100px);
         object-fit: cover;
         object-position: center;
         position: absolute;
